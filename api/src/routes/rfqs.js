@@ -226,7 +226,7 @@ r.post('/:id/status', async (c) => {
   const current = await queryOne('SELECT status FROM customer_rfqs WHERE id=$1', [id]);
   if (!current) return c.json({ error: 'Not found' }, 404);
 
-  const updates: Record<string,any> = { status };
+  const updates = { status };
   if (delivery_due_date) updates.delivery_due_date = delivery_due_date;
   if (quoted_total)      updates.quoted_total = quoted_total;
 
