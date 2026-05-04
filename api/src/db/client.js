@@ -6,13 +6,13 @@ if (!url) { console.error('ERROR: DATABASE_URL not set'); process.exit(1); }
 
 const pool = new Pool({
   connectionString: url,
-  ssl: url.includes('neon.tech') ? { rejectUnauthorized: false } : false,
+  ssl: false,
   max: 5,
   connectionTimeoutMillis: 10000,
   idleTimeoutMillis: 30000,
 });
 
-pool.on('connect', () => console.log('✓ DB connected'));
+pool.on('connect', () => console.log('DB connected'));
 pool.on('error', e => console.error('DB pool error:', e.message));
 
 export async function query(sql, params = []) {
