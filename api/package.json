@@ -1,0 +1,20 @@
+{
+  "name": "rfq-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev":      "node --watch --env-file=.env src/index.js",
+    "start":    "node src/index.js",
+    "db:init":  "node --env-file=.env src/db/migrate.js",
+    "db:seed":  "node --env-file=.env src/db/seed.js"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.12.0",
+    "hono": "^4.4.0",
+    "pg": "^8.12.0",
+    "pdf-parse": "^1.1.1",
+    "multer": "^1.4.5-lts.1"
+  },
+  "engines": { "node": ">=20.0.0" }
+}
